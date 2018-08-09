@@ -122,8 +122,7 @@ function start_app (){
 	web3.eth.getAccounts(function(e,r){
 		document.getElementById('account-addr').innerHTML =get_link(r[0]);
 	});
-	get_title();
-	get_commend();
+get_value()
 }
 
 function get_link(addr){
@@ -132,15 +131,15 @@ function get_link(addr){
 
 function get_value(){
 	Epost.getTitle(function(e,r){
-		document.getElementById('Epost-title').innerHTML=r.tostring();
-	})
+		document.getElementById('Epost-title').innerHTML=r.toString();
+	});
 
 	Epost.getCommend(function(e,r){
-		document.getElementById('Epost-commend').innerHTML=r.tostring();
-	})
-	web3.eth.get_block_num(function(e,r){
-		document.getElementById('lastBlock').innerHTML = r;
-	})
+		document.getElementById('Epost-commend').innerHTML=r.toString();
+	});
+web3.eth.getBlockNumber(function(e,r){
+    document.getElementById('last-block').innerHTML = r;
+  });
 }
 
 function set_value(){
