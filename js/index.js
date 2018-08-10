@@ -1,5 +1,5 @@
 //define
-var contractAddress = '0x95ef625da29bcb877d5fe767209ee318487bca35';
+var contractAddress = '0xf0117ed1c3f5865565009f8e2fe8508534bc922d';
 var abi = [
   {
     "constant": true,
@@ -77,6 +77,20 @@ var abi = [
       {
         "name": "",
         "type": "uint256[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "blocks_len",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -176,9 +190,39 @@ function get_value(){
   });
   });
 }
+
 function get_posting(){
-  
+
+      Epost.get_instructorAccts(function(e,r){
+        for (i = 0; i <r.length;i++){
+         Epost.get_posting(r[i].c,function(e,r){
+          document.getElementById('post-list').innerHTML += "<ul class = post-"+i+">"
+          document.getElementById('post-list').innerHTML += "<li>"+r[0]+"</li>";
+          document.getElementById('post-list').innerHTML += "<li>"+r[1]+"</li>";
+          document.getElementById('post-list').innerHTML += "<li>"+r[2]+"</li>";
+          document.getElementById('post-list').innerHTML += "</ul>"
+          console.log(r);
+         })
+        }
+      });
+
+
+// // 
+// <script>  
+// function add()  
+// {  
+//     $("#ul_id").append("<li>3</li>");  
+// }  
+// </script>
+
+
+      // var lis = document.getElementById("post-list2").getElementsByTagName("li");
+
+      // alert(lis[0].id);
 }
+// 
+
+// 
 
 function set_value(){
 	var new_title = document.getElementById('new_title').value;
@@ -191,3 +235,9 @@ function set_value(){
 	});
 
 }
+
+/*
+function (e,r){
+  }
+
+*/
