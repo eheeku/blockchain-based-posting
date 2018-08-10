@@ -1,16 +1,20 @@
 //define
-var contractAddress = '0xe1e148595874a23753dc4c3f826e9e9d979914ce';
+var contractAddress = '0x95ef625da29bcb877d5fe767209ee318487bca35';
 var abi = [
   {
     "constant": true,
     "inputs": [
       {
         "name": "",
-        "type": "address"
+        "type": "uint256"
       }
     ],
     "name": "posting",
     "outputs": [
+      {
+        "name": "poster",
+        "type": "address"
+      },
       {
         "name": "title",
         "type": "string"
@@ -26,23 +30,22 @@ var abi = [
   },
   {
     "constant": true,
-    "inputs": [],
-    "name": "owner",
+    "inputs": [
+      {
+        "name": "_block",
+        "type": "uint256"
+      }
+    ],
+    "name": "get_posting",
     "outputs": [
       {
         "name": "",
         "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "getTitle",
-    "outputs": [
+      },
+      {
+        "name": "",
+        "type": "string"
+      },
       {
         "name": "",
         "type": "string"
@@ -55,11 +58,44 @@ var abi = [
   {
     "constant": true,
     "inputs": [],
-    "name": "getCommend",
+    "name": "get_lastblock",
     "outputs": [
       {
         "name": "",
-        "type": "string"
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "get_instructorAccts",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "blocks",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -78,7 +114,7 @@ var abi = [
         "type": "string"
       }
     ],
-    "name": "setPosting",
+    "name": "setInstructor",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
@@ -130,16 +166,18 @@ function get_link(addr){
 }
 
 function get_value(){
-	Epost.getTitle(function(e,r){
-		document.getElementById('Epost-title').innerHTML=r.toString();
-	});
-
-	Epost.getCommend(function(e,r){
-		document.getElementById('Epost-commend').innerHTML=r.toString();
-	});
-web3.eth.getBlockNumber(function(e,r){
+  var last_block;
+ Epost.get_lastblock(function(e,r){
     document.getElementById('last-block').innerHTML = r;
+    Epost.get_posting(r,function(e,r){
+      document.getElementById('Epost-name').innerHTML = r[0];
+      document.getElementById('Epost-title').innerHTML = r[1];
+      document.getElementById('Epost-commend').innerHTML = r[2];
   });
+  });
+}
+function get_posting(){
+  
 }
 
 function set_value(){
@@ -147,7 +185,7 @@ function set_value(){
 	var new_commend = document.getElementById('new_commend').value;
 	//if raise error
 	var Transaction_id
-	Epost.setPosting(new_title,new_commend,function (e,r){
+	Epost.setInstructor(new_title,new_commend,function (e,r){
 		document.getElementById('new_title','new_commend').innerHTML=  'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
 		Transaction_id = r;
 	});
