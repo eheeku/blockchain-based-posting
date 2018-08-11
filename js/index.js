@@ -1,6 +1,85 @@
 //define
-var contractAddress = '0xf0117ed1c3f5865565009f8e2fe8508534bc922d';
-var abi = [
+var contractAddress = '0xaac502d3b4da6db87b72f150081de52abc9a26b9';
+var abi =[
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getBalance",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_title",
+        "type": "string"
+      },
+      {
+        "name": "_commend",
+        "type": "string"
+      }
+    ],
+    "name": "setInstructor",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "get_instructorAccts",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "get_lastblock",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_addr",
+        "type": "address"
+      }
+    ],
+    "name": "withdraw",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
   {
     "constant": true,
     "inputs": [
@@ -22,6 +101,38 @@ var abi = [
       {
         "name": "commend",
         "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "send",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "blocks_len",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -57,48 +168,6 @@ var abi = [
   },
   {
     "constant": true,
-    "inputs": [],
-    "name": "get_lastblock",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "get_instructorAccts",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256[]"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "blocks_len",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
     "inputs": [
       {
         "name": "",
@@ -117,28 +186,15 @@ var abi = [
     "type": "function"
   },
   {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_title",
-        "type": "string"
-      },
-      {
-        "name": "_commend",
-        "type": "string"
-      }
-    ],
-    "name": "setInstructor",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "fallback"
   }
 ];
 
@@ -147,22 +203,14 @@ var EPost;
 
 window.addEventListener('load', function() {
 
-  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if (typeof web3 !== 'undefined') {
-    // Use Mist/MetaMask's provider
+  if (typeof web3 !== 'no web3') {
     window.web3 = new Web3(web3.currentProvider);
   } else {
     console.log('No web3? You should consider trying MetaMask!')
-    // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
-  // Now you can start your app & access web3 freely:
   start_app();
 });
-
-
-//
-
 
 function start_app (){
 	EpostConstract = web3.eth.contract(abi);
@@ -180,7 +228,6 @@ function get_link(addr){
 }
 
 function get_value(){
-  var last_block;
  Epost.get_lastblock(function(e,r){
     document.getElementById('last-block').innerHTML = r;
     Epost.get_posting(r,function(e,r){
@@ -191,13 +238,19 @@ function get_value(){
   });
 }
 
-function get_posting(){
+var address;
+  function in_address(n){
+    address = n;
+    console.log(address);
+    // Epost.withdraw.call.(address,function(e,r){});
+  }
 
+function get_posting(){    
       Epost.get_instructorAccts(function(e,r){
         for (i = 0; i <r.length;i++){
          Epost.get_posting(r[i].c,function(e,r){
-          document.getElementById('post-list').innerHTML += "<ul class = post-"+i+">"
-          document.getElementById('post-list').innerHTML += "<li>"+r[0]+"</li>";
+          document.getElementById('post-list').innerHTML += "<ul class = post-"+i+">";
+          document.getElementById('post-list').innerHTML += "<li><a onclick="+"'in_address("+r[0]+")'"+">"+r[0]+"</a></li>";
           document.getElementById('post-list').innerHTML += "<li>"+r[1]+"</li>";
           document.getElementById('post-list').innerHTML += "<li>"+r[2]+"</li>";
           document.getElementById('post-list').innerHTML += "</ul>"
@@ -205,28 +258,13 @@ function get_posting(){
          })
         }
       });
-
-
-// // 
-// <script>  
-// function add()  
-// {  
-//     $("#ul_id").append("<li>3</li>");  
-// }  
-// </script>
-
-
-      // var lis = document.getElementById("post-list2").getElementsByTagName("li");
-
-      // alert(lis[0].id);
 }
-// 
 
-// 
 
 function set_value(){
 	var new_title = document.getElementById('new_title').value;
 	var new_commend = document.getElementById('new_commend').value;
+
 	//if raise error
 	var Transaction_id
 	Epost.setInstructor(new_title,new_commend,function (e,r){
@@ -235,9 +273,20 @@ function set_value(){
 	});
 
 }
+function fallBack(){
+    var value = document.getElementById('eth_value').value;
+    var pw = document.getElementById('eth_pw').value;
 
-/*
-function (e,r){
-  }
-
-*/
+    web3.personal.unlockAccount("0x03ee96a26b1102f8edc90b29674425d19f2f44a2",pw,600,function(e,r){ console.log(r)});
+    //web3.eth.personal.unlockAccount(web3.eth.accounts[0], unlockDuraction [, callback]);
+    console.log("wow");
+    //web3.personal.unlockAccount(web3.eth.accounts[0],function(e,r){});
+    var txHash = web3.eth.sendTransaction({
+    from: "0x03ee96a26b1102f8edc90b29674425d19f2f44a2",
+    //web3.eth.accounts[0],
+    to: "0xf3f62a773ff777193a36bfcf4cfe0316f43e56f0",
+    value: value
+},function(e,r){console.log(r);console.log("wow2");});
+    console.log("wow1");
+    console.log(txHash);
+}
