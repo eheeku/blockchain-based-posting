@@ -238,13 +238,6 @@ function get_value(){
   });
 }
 
-var address;
-  function in_address(n){
-    address = n;
-    console.log(address);
-    // Epost.withdraw.call.(address,function(e,r){});
-  }
-
 function get_posting(){    
       Epost.get_instructorAccts(function(e,r){
         for (i = 0; i <r.length;i++){
@@ -277,16 +270,13 @@ function fallBack(){
     var value = document.getElementById('eth_value').value;
     var pw = document.getElementById('eth_pw').value;
 
-    web3.personal.unlockAccount("0x03ee96a26b1102f8edc90b29674425d19f2f44a2",pw,600,function(e,r){ console.log(r)});
-    //web3.eth.personal.unlockAccount(web3.eth.accounts[0], unlockDuraction [, callback]);
-    console.log("wow");
-    //web3.personal.unlockAccount(web3.eth.accounts[0],function(e,r){});
+    web3.personal.unlockAccount(web3.eth.accounts,pw,600,function(e,r){ console.log(r)});
+    console.log("gg");
     var txHash = web3.eth.sendTransaction({
     from: "0x03ee96a26b1102f8edc90b29674425d19f2f44a2",
     //web3.eth.accounts[0],
     to: "0xf3f62a773ff777193a36bfcf4cfe0316f43e56f0",
     value: value
-},function(e,r){console.log(r);console.log("wow2");});
-    console.log("wow1");
+},function(e,r){console.log(r);});
     console.log(txHash);
 }
