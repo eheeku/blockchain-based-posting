@@ -12,7 +12,11 @@ contract EPost {
     uint[] public blocks;
     constructor ()public{
     }
-
+    
+    function blocks_len()public constant returns(uint){
+        return blocks.length;
+    }
+    
     function setInstructor (string _title, string _commend){
         var instructor = posting[block.number];
         instructor.poster = msg.sender;
@@ -21,6 +25,7 @@ contract EPost {
         
         blocks.push(block.number)-1;
     }
+    
     function get_lastblock()public constant returns (uint){
         return blocks[blocks.length-1];
     }
