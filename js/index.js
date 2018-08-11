@@ -238,19 +238,12 @@ function get_value(){
   });
 }
 
-var address;
-  function in_address(n){
-    address = n;
-    console.log(address);
-    // Epost.withdraw.call.(address,function(e,r){});
-  }
-
 function get_posting(){    
       Epost.get_instructorAccts(function(e,r){
         for (i = 0; i <r.length;i++){
          Epost.get_posting(r[i].c,function(e,r){
           document.getElementById('post-list').innerHTML += "<ul class = post-"+i+">";
-          document.getElementById('post-list').innerHTML += "<li><a onclick="+"'in_address("+r[0]+")'"+">"+r[0]+"</a></li>";
+          document.getElementById('post-list').innerHTML += "<li><a id ='list"+i+"' onclick="+"'fallBack("+i+")'"+">"+r[0]+"</a></li>";
           document.getElementById('post-list').innerHTML += "<li>"+r[1]+"</li>";
           document.getElementById('post-list').innerHTML += "<li>"+r[2]+"</li>";
           document.getElementById('post-list').innerHTML += "</ul>"
@@ -273,20 +266,21 @@ function set_value(){
 	});
 
 }
-function fallBack(){
+var a;
+function fallBack(li_list){
+ a = document.getElementById('list'+li_list).innerHTML;
+ console.log("a::"+a.toString(16));
+  // hexString = to_user.toString(16);
+
+    // console.log("to_user: "+hexString);
     var value = document.getElementById('eth_value').value;
     var pw = document.getElementById('eth_pw').value;
-
-    web3.personal.unlockAccount("0x03ee96a26b1102f8edc90b29674425d19f2f44a2",pw,600,function(e,r){ console.log(r)});
-    //web3.eth.personal.unlockAccount(web3.eth.accounts[0], unlockDuraction [, callback]);
-    console.log("wow");
-    //web3.personal.unlockAccount(web3.eth.accounts[0],function(e,r){});
+    web3.personal.unlockAccount(web3.eth.accounts,pw,600,function(e,r){ console.log(r)});
+    console.log("gg");
     var txHash = web3.eth.sendTransaction({
-    from: "0x03ee96a26b1102f8edc90b29674425d19f2f44a2",
-    //web3.eth.accounts[0],
-    to: "0xf3f62a773ff777193a36bfcf4cfe0316f43e56f0",
-    value: value
-},function(e,r){console.log(r);console.log("wow2");});
-    console.log("wow1");
+    from: web3.eth.accounts,
+    to: a.toString(16),
+    value: a
+},function(e,r){console.log(r);});
     console.log(txHash);
 }
