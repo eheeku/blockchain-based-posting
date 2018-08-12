@@ -15,10 +15,11 @@ html,body{
 	color: white;
 }
 
-/*info*/
-#test{
+/*add block*/
+#out-addblock{
 	display: none;
 }
+/*info*/
 
 .info{
 	width: 100%;
@@ -28,12 +29,35 @@ html,body{
 	display: inline-block;
 }
 .user-info ul {
+
 }
 .user-info ul li{
 	list-style: none;
 }
 
 /*current block*/
-.current-block{
+
+.out-current-block{
 
 }
+.in-current-block{
+
+}
+.current-block-h3{
+
+}
+.current-block-ul{
+
+}
+.current-block-ul ul{
+	list-style: none;
+}
+
+/*end current block*/
+
+/*post list*/
+
+#post-list {
+	list-style: none;
+}
+/*end post list*/

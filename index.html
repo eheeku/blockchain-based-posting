@@ -43,29 +43,40 @@
 
 <!-- current block -->
 
-<div class ="current-block">
-  <h3>가장 최근에 추가 된 포스트</h3>
+<div class ="out-current-block">
+  <div class="in-current-block">
+    <div class="current-block-h3">
+  <h3>가장 최근에 추가 된 포스트 블록</h3>
+  </div>
+  <div class= "current-block-ul">
 	<ul>
-		<li>name : <span id="Epost-name"></span></li>
-		<li>title : <span id="Epost-title"></span></li>
-		<li>commend : <span id="Epost-commend"></span></li>
-		<li> <button onclick="get_value()">새로고침</button> (현재블록: <span id="last-block"></span>)</li>
+		<li><h3 id="Epost-title"></h3></li>
+		<li><span id="Epost-commend"></span></li>
+    <li><span id="last-block"></span>  <span id="Epost-name"></span></li>
+		<!-- <li> <button onclick="get_value()">새로고침</button></li> -->
 	</ul>
+  </div>
+  </div>
 </div>
 <!-- current block end -->
 <!-- post list -->
-<div>
+
   <!-- Send Transaction -->
 <!--   <span>if you want send eth</span>
+  <div>
   <ul>
     <li>eth Value:<input type="text" id = "eth_value"></li>
     <li>password: <input type="text" id = "eth_pw"></li>
     <li><button onclick="fallBack()">fallback</button></li>
   </ul>
 </div> -->
-<button onclick="get_posting()"> post list </button>
+<!--  -->
+<div>
+  <ul id ="post-list">
+    
+  </ul>
+</div>
 
-<div id ="post-list"></div>
 </body>
 <script src="./js/index.js"></script>
 
