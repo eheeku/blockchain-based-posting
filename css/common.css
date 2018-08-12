@@ -1,0 +1,11 @@
+html,body{
+	padding: 0;
+	margin: 0;
+}
+.out-header{
+	width: 100%;
+	text-align: center;
+}
+.in-header{
+	display: inline-block;
+}
