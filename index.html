@@ -6,11 +6,14 @@
   <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
+  <!-- head -->
   <header class="out-header">
     <div class ="in-header">
   <h1>Solidity Eheeku</h1>
   </div>
   </header>
+<!-- head end -->
+<!-- info -->
   <div class = "info">
   <div class="user-info">
     <h3>my info</h3>
@@ -20,16 +23,28 @@
   </ul>
 </div>
 </div>
-<div>
+<!-- info end -->
+
+<!-- add block -->
+<div class="add-block">
+  <input id="new_title" type="text"><br><input id="new_commend" type="text">
+    <button onclick="set_value()">저장</button>
+</div>
+<!-- add block end -->
+
+<!-- current block -->
+
+<div class ="current-block">
+  <h3>가장 최근에 추가 된 포스트</h3>
 	<ul>
 		<li>name : <span id="Epost-name"></span></li>
 		<li>title : <span id="Epost-title"></span></li>
 		<li>commend : <span id="Epost-commend"></span></li>
 		<li> <button onclick="get_value()">새로고침</button> (현재블록: <span id="last-block"></span>)</li>
-<li><input id="new_title" type="text"><br><input id="new_commend" type="text"><button onclick="set_value()">새 값으로 저장하기</button>
-      <div id="result"></div></li>
 	</ul>
 </div>
+<!-- current block end -->
+<!-- post list -->
 <div>
   <!-- Send Transaction -->
 <!--   <span>if you want send eth</span>
@@ -39,7 +54,7 @@
     <li><button onclick="fallBack()">fallback</button></li>
   </ul>
 </div> -->
-<button onclick="get_posting()">GET Post list </button>
+<button onclick="get_posting()"> post list </button>
 
 <div id ="post-list"></div>
 </body>

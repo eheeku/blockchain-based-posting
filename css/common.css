@@ -20,3 +20,13 @@ html,body{
 .user-info{
 	display: inline-block;
 }
+.user-info ul {
+}
+.user-info ul li{
+	list-style: none;
+}
+
+/*current block*/
+.current-block{
+	
+}
