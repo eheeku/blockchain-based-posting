@@ -28,31 +28,20 @@
   </div>
   </header>
 <!-- head end -->
-<!-- info -->
-  <div class = "info">
-
-<div class="user-info">
-  <button id="showr">글쓰기</button>
-</div>
-</div>
-<!-- info end -->
 
 <!-- add block -->
-<div id ="warp-showr">
+  <button id="showr">글쓰기</button>
+
 
 <div id ="out-addblock">
 <div class="in-addblock">
   <input id="new_title" type="text">
-    <label class="addblock-label">Title</label>
-</div>
-<div class="in-addblock">
-  <textarea name="" id="new_commend" cols="30" rows="10"></textarea>
+  <textarea name="" id="new_commend" cols="100" rows="4"></textarea>
+  <button class ="addblock-submit"onclick="set_value()">저장</button>
   <!-- <input id="new_commend" type="text"> -->
 </div>
-<button onclick="set_value()">저장</button>
+</div>
 
-</div>
-</div>
 <!-- add block end -->
 
 <!-- current block -->
@@ -62,10 +51,10 @@
     <div class="current-block-h3">
   <h3>가장 최근에 추가 된 포스트 블록</h3>
   </div>
-  <div class= "current-block-ul">
+  <div style="word-wrap: break-word;"class= "current-block-ul">
 	<ul>
 		<li><span id="last-block"></span> <h3 id="Epost-title" style="margin-top: 0;"></h3></li>
-		<li><span id="Epost-commend"></span></li>
+		<li><div><p id="Epost-commend"></p></div></li>
     <li><span id="Epost-name"></span></li>
 		<li> <button onclick="get_value()">새로고침</button></li>
 	</ul>
