@@ -38,16 +38,17 @@ html,body{
 /*current block*/
 
 .out-current-block{
-
+	width: 100%;
+	margin:0 auto;
 }
 .in-current-block{
-
+margin-left: 20%;
 }
 .current-block-h3{
 
 }
 .current-block-ul{
-
+	width: 70%;
 }
 .current-block-ul ul{
 	list-style: none;
@@ -56,8 +57,21 @@ html,body{
 /*end current block*/
 
 /*post list*/
+.out-list{
+
+}
+.in-list {
+word-wrap:break-word;
+}
 
 #post-list {
-	list-style: none;
+width: 50%;
+list-style: none;
+
+flex-direction: column;
+}
+
+#post-list ul li{
+
 }
 /*end post list*/
