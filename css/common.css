@@ -6,7 +6,9 @@ html,body{
 .out-header{
 	width: 100%;
 	height: 50%;
-	padding: 15% 0;
+	padding-top: 15%;
+	/*padding-bottom: 3%;*/
+	/*padding: 15% 0;*/
 	text-align: center;
 	background-image: url("../img/bg.jpg");
 }
@@ -14,27 +16,68 @@ html,body{
 	display: inline-block;
 	color: white;
 }
-
+.bottom-header{
+padding-top: 2%;
+padding-right: 5%;
+margin-top: 5%;
+background-color: rgba(0,0,0,50%);
+}
 /*add block*/
+.warp-showr{
+	
+}
 #out-addblock{
 	display: none;
 }
+
+#new_title{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+#new_title:focus{ outline:none; }
+.addblock-label{
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+
+}
+
 /*info*/
 
 .info{
 	width: 100%;
-	text-align: center;
+	/*text-align: center;*/
 }
 .user-info{
 	display: inline-block;
+	
 }
-.user-info ul {
-
+.user-info-address{
+	color: white;
+	text-align: right;
 }
 .user-info ul li{
 	list-style: none;
 }
+ .address-link{
+ 	font-size: 0.7em;
+ }
+ .address-link:link { color: white; text-decoration: none;}
+ .address-link:visited { color: white; text-decoration: none;}
+ .address-link:hover { color: white; text-decoration: none;}
 
+/**/
 /*current block*/
 
 .out-current-block{
@@ -48,10 +91,23 @@ margin-left: 20%;
 
 }
 .current-block-ul{
-	width: 70%;
+	width: 60%;
+	border: 1px solid rgba(204,204,204,50%);
+	border-left: 4px solid rgba(153,204,000,30%);
+	margin: 2% 0;
+	padding-right: 5%;
+	background: rgba(204,204,204,20%);
 }
 .current-block-ul ul{
 	list-style: none;
+}
+#last-block{
+	font-size: 0.7em;
+	text-align: letf;
+}
+#Epost-name{
+	font-size: 0.7em;
+	text-align: right;
 }
 
 /*end current block*/

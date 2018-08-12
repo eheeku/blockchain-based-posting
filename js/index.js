@@ -225,7 +225,7 @@ get_posting();
 }
 
 function get_link(addr){
-	return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
+	return '<a class="address-link" target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
 }
 
 function get_value(){
