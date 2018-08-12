@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+
+
   <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
@@ -16,7 +21,7 @@
 <!-- info -->
   <div class = "info">
   <div class="user-info">
-    <h3>my info</h3>
+    <h3>INFOMATION</h3>
   <ul>
     <li>contract-address: <span id="contract-addr"></span></li>
     <li>account-address: <span id="account-addr"></span></li>
@@ -26,9 +31,13 @@
 <!-- info end -->
 
 <!-- add block -->
-<div class="add-block">
+<button id="showr">글쓰기</button>
+<div id ="out-addblock">
+
+<div class="in-addblock">
   <input id="new_title" type="text"><br><input id="new_commend" type="text">
     <button onclick="set_value()">저장</button>
+</div>
 </div>
 <!-- add block end -->
 
@@ -59,4 +68,15 @@
 <div id ="post-list"></div>
 </body>
 <script src="./js/index.js"></script>
+
+<!-- toggle -->
+ <script type="text/javascript">
+      $(function() {
+         $('#showr').click(function() {
+            $('div#out-addblock').toggle();
+            return false;
+         });
+      });   
+   </script>
+
 </html>
