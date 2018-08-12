@@ -66,13 +66,25 @@ margin-left: 20%;
 }
 
 #post-list {
-width: 50%;
+width: 60%;
 list-style: none;
-
 flex-direction: column;
 }
-
-#post-list ul li{
-
+.each-post{
+	border: 1px solid rgba(204,204,204,50%);
+	border-left: 4px solid rgba(000,102,153,30%);
+	margin: 2% 0;
+	padding: 5% 5%;
+	background: rgba(204,204,204,20%);
+}
+.post-address{
+	font-size: 0.7em;
+	text-align: right;
+}
+.post-title{
+	font: bold;
+}
+.post-commend{
+	margin-top: 3%;
 }
 /*end post list*/

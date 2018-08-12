@@ -244,11 +244,8 @@ function get_posting(){
 
         for (i = r.length-2; i =>0;i--){
          Epost.get_posting(r[i],function(e,r){
-          // document.getElementById('post-list').innerHTML += "<div><ul id='in-post-list' class = post-"+i+">";
-          document.getElementById('post-list').innerHTML += "<li><h3>"+r[1]+"</h3></li>";
-          document.getElementById('post-list').innerHTML += "<li>"+r[2]+"</li>";
-          document.getElementById('post-list').innerHTML += "<li><a id ='list"+i+"'value="+r[0]+" onclick="+"'fallBack("+i+")'"+">"+r[0]+"</a></li>";
-          // document.getElementById('post-list').innerHTML += "</ul></div>";
+          
+          document.getElementById('post-list').innerHTML += "<div class='each-post'><li class='post-title'>"+r[1]+"</li><li class='post-commend'>"+r[2]+"</li><li class='post-address'>@<a id ='list"+i+"'value="+r[0]+" onclick="+"'fallBack("+i+")'"+">"+r[0]+"</a></li></div>";
          });
         }
 
