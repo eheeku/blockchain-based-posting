@@ -15,28 +15,42 @@
   <header class="out-header">
     <div class ="in-header">
   <h1>Solidity Eheeku</h1>
+  <span>어떤블로그인가요어떤블로그인가요어떤블로그인가요어떤블로그인가요<br>어떤블로그인가요어떤블로그인가요어떤블로그인가요</span>
+  </div>
+  <div class="bottom-header">
+      <div class="user-info-address">
+    <h3 style="margin-left: 20%;">INFOMATION</h3>
+  <ul style="font-size: 0.9em; list-style: none;">
+    <li >contract-address: <span id="contract-addr"></span></li>
+    <li >account-address: <span id="account-addr"></span></li>
+  </ul>
+</div>
   </div>
   </header>
 <!-- head end -->
 <!-- info -->
   <div class = "info">
-  <div class="user-info">
-    <h3>INFOMATION</h3>
-  <ul>
-    <li>contract-address: <span id="contract-addr"></span></li>
-    <li>account-address: <span id="account-addr"></span></li>
-  </ul>
+
+<div class="user-info">
+  <button id="showr">글쓰기</button>
 </div>
 </div>
 <!-- info end -->
 
 <!-- add block -->
-<button id="showr">글쓰기</button>
-<div id ="out-addblock">
+<div id ="warp-showr">
 
+<div id ="out-addblock">
 <div class="in-addblock">
-  <input id="new_title" type="text"><br><input id="new_commend" type="text">
-    <button onclick="set_value()">저장</button>
+  <input id="new_title" type="text">
+    <label class="addblock-label">Title</label>
+</div>
+<div class="in-addblock">
+  <textarea name="" id="new_commend" cols="30" rows="10"></textarea>
+  <!-- <input id="new_commend" type="text"> -->
+</div>
+<button onclick="set_value()">저장</button>
+
 </div>
 </div>
 <!-- add block end -->
@@ -50,10 +64,10 @@
   </div>
   <div class= "current-block-ul">
 	<ul>
-		<li><h3 id="Epost-title"></h3></li>
+		<li><span id="last-block"></span> <h3 id="Epost-title" style="margin-top: 0;"></h3></li>
 		<li><span id="Epost-commend"></span></li>
-    <li><span id="last-block"></span>  <span id="Epost-name"></span></li>
-		<!-- <li> <button onclick="get_value()">새로고침</button></li> -->
+    <li><span id="Epost-name"></span></li>
+		<li> <button onclick="get_value()">새로고침</button></li>
 	</ul>
   </div>
   </div>
