@@ -243,7 +243,7 @@ function get_posting(){
         for (i = 0; i <r.length;i++){
          Epost.get_posting(r[i].c,function(e,r){
           document.getElementById('post-list').innerHTML += "<ul class = post-"+i+">";
-          document.getElementById('post-list').innerHTML += "<li><a id ='list"+i+"' onclick="+"'fallBack("+i+")'"+">"+r[0]+"</a></li>";
+          document.getElementById('post-list').innerHTML += "<li><a id ='list"+i+"'value="+r[0]+" onclick="+"'fallBack("+i+")'"+">"+r[0]+"</a></li>";
           document.getElementById('post-list').innerHTML += "<li>"+r[1]+"</li>";
           document.getElementById('post-list').innerHTML += "<li>"+r[2]+"</li>";
           document.getElementById('post-list').innerHTML += "</ul>"
@@ -266,21 +266,19 @@ function set_value(){
 	});
 
 }
-var a;
-function fallBack(li_list){
- a = document.getElementById('list'+li_list).innerHTML;
- console.log("a::"+a.toString(16));
-  // hexString = to_user.toString(16);
 
-    // console.log("to_user: "+hexString);
+function fallBack(li_list){
+   var  a = document.getElementById('list'+li_list).innerHTML;
+    console.log("a::"+a);
+
     var value = document.getElementById('eth_value').value;
     var pw = document.getElementById('eth_pw').value;
     web3.personal.unlockAccount(web3.eth.accounts,pw,600,function(e,r){ console.log(r)});
-    console.log("gg");
+    console.log("accounts:"+web3.eth.accounts);
     var txHash = web3.eth.sendTransaction({
     from: web3.eth.accounts,
-    to: a.toString(16),
-    value: a
+    to: a,
+    value: 1
 },function(e,r){console.log(r);});
     console.log(txHash);
 }
