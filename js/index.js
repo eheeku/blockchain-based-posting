@@ -220,7 +220,8 @@ function start_app (){
 	web3.eth.getAccounts(function(e,r){
 		document.getElementById('account-addr').innerHTML =get_link(r[0]);
 	});
-get_value()
+get_value();
+get_posting();
 }
 
 function get_link(addr){
@@ -240,15 +241,14 @@ function get_value(){
 
 function get_posting(){    
       Epost.get_instructorAccts(function(e,r){
-        for (i = 0; i <r.length;i++){
-         Epost.get_posting(r[i].c,function(e,r){
-          document.getElementById('post-list').innerHTML += "<ul class = post-"+i+">";
-          document.getElementById('post-list').innerHTML += "<li><a id ='list"+i+"'value="+r[0]+" onclick="+"'fallBack("+i+")'"+">"+r[0]+"</a></li>";
-          document.getElementById('post-list').innerHTML += "<li>"+r[1]+"</li>";
+        for (i = r.length-2; i =>0;i--){
+         Epost.get_posting(r[i],function(e,r){
+          document.getElementById('post-list').innerHTML += "<ul id='in-post-list' class = post-"+i+">";
+          document.getElementById('post-list').innerHTML += "<li><h3>"+r[1]+"</h3></li>";
           document.getElementById('post-list').innerHTML += "<li>"+r[2]+"</li>";
-          document.getElementById('post-list').innerHTML += "</ul>"
-          console.log(r);
-         })
+          document.getElementById('post-list').innerHTML += "<li><a id ='list"+i+"'value="+r[0]+" onclick="+"'fallBack("+i+")'"+">"+r[0]+"</a></li>";
+          document.getElementById('post-list').innerHTML += "</ul>";
+         });
         }
       });
 }
