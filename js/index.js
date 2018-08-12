@@ -268,17 +268,15 @@ function set_value(){
 }
 
 function fallBack(li_list){
-   var  a = document.getElementById('list'+li_list).innerHTML;
-    console.log("a::"+a);
-
-    var value = document.getElementById('eth_value').value;
-    var pw = document.getElementById('eth_pw').value;
-    web3.personal.unlockAccount(web3.eth.accounts,pw,600,function(e,r){ console.log(r)});
+  // if you need password unlock ? used this comment
+    //var value = document.getElementById('eth_value').value;
+    //var pw = document.getElementById('eth_pw').value;
+    //web3.personal.unlockAccount(web3.eth.accounts,pw,600,function(e,r){ console.log(r)});
     console.log("accounts:"+web3.eth.accounts);
     var txHash = web3.eth.sendTransaction({
     from: web3.eth.accounts.toString(),
-    to: a,
-    value: 1
+    to: document.getElementById('list'+li_list).innerHTML,
+    value: web3.toWei('0.24', 'ether')
 },function(e,r){console.log(r);});
     console.log(txHash);
 }
