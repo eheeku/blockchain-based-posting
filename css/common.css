@@ -2,10 +2,21 @@ html,body{
 	padding: 0;
 	margin: 0;
 }
+/*header*/
 .out-header{
 	width: 100%;
 	text-align: center;
 }
 .in-header{
+	display: inline-block;
+}
+
+/*info*/
+
+.info{
+	width: 100%;
+	text-align: center;
+}
+.user-info{
 	display: inline-block;
 }
