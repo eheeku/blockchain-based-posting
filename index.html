@@ -32,15 +32,22 @@
 <!-- add block -->
   <button id="showr">글쓰기</button>
 
-
+<div id="wrapper">
+  <form id="paper">
+    <div id="margin">Title: <input id="new_title" type="text" name="title"></div>
+    <textarea placeholder="Enter something funny." id="new_commend" name="text" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "></textarea>  
+    <br>
+    <input id="button" onclick="set_value()" type="submit" value="Create">
+  </form>
+</div>
+<!-- 
 <div id ="out-addblock">
 <div class="in-addblock">
   <input id="new_title" type="text">
-  <textarea name="" id="new_commend" cols="100" rows="4"></textarea>
+  <textarea name="" id="new_commend" cols="100" rows=""></textarea>
   <button class ="addblock-submit"onclick="set_value()">저장</button>
-  <!-- <input id="new_commend" type="text"> -->
 </div>
-</div>
+</div> -->
 
 <!-- add block end -->
 
@@ -77,7 +84,7 @@
  <script type="text/javascript">
       $(function() {
          $('#showr').click(function() {
-            $('div#out-addblock').toggle();
+            $('div#wrapper').toggle();
             return false;
          });
       });   
