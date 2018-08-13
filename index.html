@@ -30,15 +30,15 @@
 <!-- head end -->
 
 <!-- add block -->
-  <button id="showr">글쓰기</button>
+  <button id="button" class="showr">Writing post</button>
 
 <div id="wrapper">
-  <form id="paper">
-    <div id="margin">Title: <input id="new_title" type="text" name="title"></div>
+  <div id="paper">
+    <div >Title: <input id="new_title" type="text" name="title"></div>
     <textarea placeholder="Enter something funny." id="new_commend" name="text" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "></textarea>  
     <br>
     <input id="button" onclick="set_value()" type="submit" value="Create">
-  </form>
+  </div>
 </div>
 <!-- 
 <div id ="out-addblock">
@@ -60,7 +60,7 @@
   </div>
   <div style="word-wrap: break-word;"class= "current-block-ul">
 	<ul>
-		<li><span id="last-block"></span> <h3 id="Epost-title" style="margin-top: 0;"></h3></li>
+		<li>blockNumber : <span id="last-block"></span><h3 id="Epost-title" style="margin-top: 0;"></h3></li>
 		<li><div><p id="Epost-commend"></p></div></li>
     <li><span id="Epost-name"></span></li>
 		<li> <button onclick="get_value()">새로고침</button></li>
@@ -77,13 +77,25 @@
   </div>
 </div>
 <!-- post list end -->
+<!-- footer -->
+<footer>
+    <div>
+        Have a question? Email us at
+        <a class="social" href="mailto:eheeku@gmail.com">eheeku@gmail.com</a>
+    </div>
+    <div>
+        <a class="social" href="https://www.instagram.com/ehee97/?hl=ko">Instagram</a>
+        <a class="social" href="https://github.com/eheeku">github</a>
+    </div>
+</footer>
+<!-- footer end -->
 </body>
 <script src="./js/index.js"></script>
 
 <!-- toggle -->
  <script type="text/javascript">
       $(function() {
-         $('#showr').click(function() {
+         $('.showr').click(function() {
             $('div#wrapper').toggle();
             return false;
          });
