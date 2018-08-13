@@ -5,10 +5,10 @@
 
 
 ### what is this?
- 포스팅 시 gas를 지불하고, 누군가에게 유효한 포스팅을 했을 경우 타인이 당신에게 이더를 줄 수 있는 서비스입니다.
+ 포스팅 시 gas를 지불하고, 누군가에게 유효한 포스팅을 했을 경우 타인이 당신에게 이더를 줄 수 있는 서비스입니다.  
 |  main| write form | create post |get eth|
 |:--------:|:--------:|:--------:|:--------:|
-| ![1](./testimg/1.png) | ![2](./testimg/2.png) | ![3](./testimg/3.png) |  ![4](./testimg/4.png) |
+| ![1](./testimg/1.PNG) | ![2](./testimg/2.PNG) | ![3](./testimg/3.PNG) | ![4](./testimg/4.PNG) |
 > path : testimg  
 
 ### 사용법
