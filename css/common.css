@@ -25,34 +25,64 @@ background-color: rgba(0,0,0,50%);
 }
 
 /*add block*/
-.warp-showr{
-	width: 100%;
-}
-#out-addblock{
-	/* 디자인 끝나고 마지막에 풀어줄 것 :display: none;*/
-	display: inline-block;
-	margin-left: 20%;
-	width: 80%;
-}
-#in-addblock{
 
-}
-#new_title{
-	width: 50%;
-	padding: 1% 1%;
-	margin-bottom: 1%;
-	font-size: 1.3em;
-}
-#new_title:focus{ outline:none; }
 /**/
-#new_commend{
-width: 50%;
-padding: 1% 1%;
-font-size: 1.3em;
-}
 
-.addblock-submit{
-	padding:3% 3%;
+#new_commend {
+	width: 70%;
+	overflow:hidden;
+	font-size:0.9em;
+	font-family:Courier, monospace;
+	font-weight:normal;
+	resize:none;
+	line-height:40px;
+	padding-left: 100px;
+	padding-right: 100px;
+	background-color: rgba(204,204,204,30%);
+	background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+}
+#new_title {
+	background-color:transparent;
+	border-bottom:3px solid black;
+	margin-bottom:20px;
+	color:black;
+	font-size:20px;
+	font-family:Courier, monospace;
+	height:28px;
+	font-weight:bold;
+	width:220px;
+}
+#button {
+	float:right;
+	height:40px;
+	padding-left:24px;
+	padding-right:24px;
+	font-weight:bold;
+	font-size:20px;
+	color:#FFF;
+	-webkit-border-radius:8px;
+	border-top:1px solid #FFF;
+	background-color: #62add6;
+	background-repeat:repeat-x;
+}
+#button:active {
+	zoom: 1;
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+}
+#button:focus {
+	zoom: 1;
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+}
+#wrapper {
+	display: none;
+	width:700px;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:24px;
+	margin-bottom:100px;
 }
 .user-info-address{
 	color: white;
@@ -76,7 +106,7 @@ font-size: 1.3em;
 	margin:0 auto;
 }
 .in-current-block{
-margin-left: 20%;
+margin-left: 25%;
 }
 .current-block-h3{
 
@@ -109,7 +139,7 @@ margin-left: 20%;
 }
 .in-list {
 word-wrap:break-word;
-margin-left: 20%;
+margin-left: 30%;
 }
 
 #post-list {
@@ -135,3 +165,11 @@ flex-direction: column;
 	margin-top: 3%;
 }
 /*end post list*/
+
+* {
+  outline:none;
+	border:none;
+	margin:0px;
+	padding:0px;
+	font-family:Courier, monospace;
+}
